@@ -79,6 +79,8 @@ public class MsgListActivity extends BaseActivity implements Callback<List<Messa
     @Override
     protected void onResume() {
         super.onResume();
+        mMsgListAdapter=new MsgListAdapter(MsgListActivity.this,messageList);
+        mMsgListAdapter.notifyDataSetChanged();
     }
 
     @Override

@@ -48,9 +48,8 @@ public class MsgDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.msg_detail_activity);
-        initToolBar(false, true);
+        initToolBar(true, false);
         initView();
-        getSupportActionBar().setLogo(ContextCompat.getDrawable(this, R.drawable.ic_white_arrow));
         msgId = getIntent().getExtras().getInt(getString(R.string.tag_msg_id));
         getMessageDetailLst();
     }
@@ -138,6 +137,9 @@ public class MsgDetailActivity extends BaseActivity {
         switch (id) {
             case R.id.delete:
                 showDialog();
+                break;
+            case android.R.id.home:
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
