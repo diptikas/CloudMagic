@@ -52,7 +52,6 @@ public class MsgListAdapter extends RecyclerView.Adapter<MsgListAdapter.ViewHold
 
         //Convert timestamp to date
         convertTS(holder, message.getTimeStamp());
-
         holder.setTag(R.string.tag_msg_id, message.getId());
         if (message.isRead()) {
             holder.rootLayout.setBackgroundColor(ContextCompat.getColor(mContext, R.color.border_grey));
@@ -88,6 +87,8 @@ public class MsgListAdapter extends RecyclerView.Adapter<MsgListAdapter.ViewHold
     public void removeItem(int position) {
         messageList.remove(position);
         notifyItemRemoved(position);
+        MsgDetailActivity msgDetailActivity=new MsgDetailActivity();
+        msgDetailActivity.deleteMsg(messageList.get(position).getId());
         notifyItemRangeChanged(position, messageList.size());
     }
 
