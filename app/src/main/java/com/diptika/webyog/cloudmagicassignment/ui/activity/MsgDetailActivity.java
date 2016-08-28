@@ -153,7 +153,7 @@ public class MsgDetailActivity extends BaseActivity {
         builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                deleteMsg(msgId);
+                deleteMsg();
                 dialog.dismiss();
 
             }
@@ -169,9 +169,9 @@ public class MsgDetailActivity extends BaseActivity {
 
     }
 
-    public void deleteMsg(int msgId) {
+    private void deleteMsg() {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<Void> call = apiService.deleteMessage(this.msgId);
+        Call<Void> call = apiService.deleteMessage(msgId);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void>call, Response<Void> response) {

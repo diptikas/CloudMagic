@@ -109,7 +109,7 @@ public class MsgListActivity extends BaseActivity implements Callback<List<Messa
                 int position = viewHolder.getAdapterPosition();
                 if (direction == ItemTouchHelper.LEFT) {
                     mMsgListAdapter.removeItem(position);
-                    showSnackbar("Deleted",true);
+
                 }
             }
 

@@ -12,16 +12,23 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.diptika.webyog.cloudmagicassignment.R;
 import com.diptika.webyog.cloudmagicassignment.ui.activity.MsgDetailActivity;
 import com.diptika.webyog.cloudmagicassignment.ui.api.model.Message;
+import com.diptika.webyog.cloudmagicassignment.ui.api.retrofit.ApiClient;
+import com.diptika.webyog.cloudmagicassignment.ui.api.retrofit.ApiInterface;
 
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by diptika.s on 27/08/16.
@@ -87,10 +94,28 @@ public class MsgListAdapter extends RecyclerView.Adapter<MsgListAdapter.ViewHold
     public void removeItem(int position) {
         messageList.remove(position);
         notifyItemRemoved(position);
-        MsgDetailActivity msgDetailActivity=new MsgDetailActivity();
-        msgDetailActivity.deleteMsg(messageList.get(position).getId());
+        deleteMsg(position);
         notifyItemRangeChanged(position, messageList.size());
     }
+
+    private void deleteMsg(int position) {
+            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+            Call<Void> call = apiService.deleteMessage(messageList.get(position).getId());
+            call.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void>call, Response<Void> response) {
+                    Toast.makeText(mContext.getApplicationContext(),"Deleted",Toast.LENGTH_SHORT).show();
+                }
+                @Override
+                public void onFailure(Call<Void>call, Throwable t) {
+
+                    Toast.makeText(mContext.getApplicationContext(),"Something went wrong.Please Try Again",Toast.LENGTH_SHORT).show();
+
+                }
+            });
+
+        }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView participantName;
@@ -112,7 +137,7 @@ public class MsgListAdapter extends RecyclerView.Adapter<MsgListAdapter.ViewHold
             previewText = (TextView) view.findViewById(R.id.preview_text);
             timestampText = (TextView) view.findViewById(R.id.time);
             starredIcon = (ImageView) view.findViewById(R.id.starred_icon);
-            rootLayout = (LinearLayout) view.findViewById(R.id.root_layout);
+            rootLayout = (LinearLayout) view.findViewById(R.id.rootLayout);
             rootLayout.setOnClickListener(this);
         }
 
