@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_10"
+            >
+            <TextView
+                android:layout_toLeftOf="@+id/starred_icon"
+                android:id="@+id/welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:textSize="@dimen/dimen_18"/>
+
+
+            <TextView
+                android:id="@+id/participants_name"
+                android:layout_below="@+id/welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dark_grey"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:singleLine="true"
+                android:layout_marginLeft="@dimen/dimen_10"
+                android:text=""
+                android:textSize="@dimen/dimen_12"/>
+
+
+            <ImageView
+                android:id="@+id/starred_icon"
+                android:layout_width="@dimen/dimen_18"
+                android:layout_alignParentRight="true"
+                android:layout_height="@dimen/dimen_18"
+                android:layout_marginRight="@dimen/dimen_5"
+                android:layout_marginLeft="@dimen/dimen_5"
+                android:src="@drawable/unstar"/>
+        </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_3"
+        android:layout_marginTop="@dimen/dimen_5"
+        android:background="@android:color/darker_gray"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_10">
+
+        <TextView
+            android:id="@+id/head_text"
+            android:layout_width="@dimen/dimen_50"
+            android:layout_height="@dimen/dimen_50"
+            android:text=""
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_30"
+            android:background="@drawable/circle_bg"/>
+
+        <TextView
+            android:layout_toRightOf="@+id/head_text"
+            android:layout_toLeftOf="@+id/menu_icon"
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:textSize="@dimen/dimen_15"/>
+
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_toRightOf="@+id/head_text"
+            android:layout_below="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_grey"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:singleLine="true"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:text=""
+            android:textSize="@dimen/dimen_12"/>
+
+
+        <ImageView
+            android:id="@+id/menu_icon"
+            android:layout_width="@dimen/dimen_18"
+            android:layout_alignParentRight="true"
+            android:layout_height="@dimen/dimen_18"
+            android:layout_marginRight="@dimen/dimen_5"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:src="@android:drawable/ic_menu_agenda"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/body"
+        android:layout_below="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="@dimen/dimen_5"
+        android:layout_marginLeft="@dimen/dimen_20"
+        android:text=""
+        android:textSize="@dimen/dimen_14"/>
+</LinearLayout>
+</ScrollView>
+</LinearLayout>

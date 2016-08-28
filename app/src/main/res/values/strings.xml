@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CloudMagic</string>
+    <string name="title_msg_list">Inbox</string>
+    <string name="title_alert_delete">Delete</string>
+    <string name="message_alert_delete">Are you sure want to delete?</string>
+    <string name="tag_msg_id">MessageId</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="welcome_msg">Welcome to CloudMagic</string>
+    <string name="loading">Loading....</string>
+    <string name="deleted">Deleted</string>
+    <string name="undo">Undo</string>
+</resources>
